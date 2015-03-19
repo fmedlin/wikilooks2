@@ -1,10 +1,10 @@
 package com.fredmedlin.wikilooks.ui.mvp.presenter;
 
 import com.fredmedlin.wikilooks.domain.Article;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.ArticleReceivedEvent;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.GeoArticlesEvent;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.LocationEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.ArticleReceivedEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.GeoArticlesEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.LocationEvent;
 import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesView;
 
 import org.junit.Before;

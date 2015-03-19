@@ -1,9 +1,10 @@
 package com.fredmedlin.wikilooks.ui.mvp.presenter;
 
 import com.fredmedlin.wikilooks.domain.Article;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.ArticleReceivedEvent;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.GeoArticlesEvent;
-import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.LocationEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.ArticleReceivedEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.GeoArticlesEvent;
+import com.fredmedlin.wikilooks.ui.mvp.model.ArticlesModel.LocationEvent;
 
 public class ArticlesPresenter {
 
@@ -35,55 +36,6 @@ public class ArticlesPresenter {
                 article.getDescription(),
                 article.getLatitude(),
                 article.getLongitude());
-    }
-
-    public interface ArticlesModel {
-        void requestLocation();
-        void fetchArticlesByLocation(double lat, double lon);
-        void fetchArticle(long articleId);
-        Article getArticle(long articleId);
-
-        public static class LocationEvent {
-            double lat;
-            double lon;
-
-            public LocationEvent(double lat, double lon) {
-                this.lat = lat;
-                this.lon = lon;
-            }
-
-            public double getLatitude() {
-                return lat;
-            }
-
-            public double getLongitude() {
-                return lon;
-            }
-        }
-
-        public static class GeoArticlesEvent {
-            long[] articleIds;
-
-            public GeoArticlesEvent(long[] articleIds) {
-                this.articleIds = articleIds;
-            }
-
-            public long[] getArticleIds() {
-                return articleIds;
-            }
-        }
-
-        public static class ArticleReceivedEvent {
-            long articleId;
-
-            public ArticleReceivedEvent(long articleId) {
-                this.articleId = articleId;
-            }
-
-            public long getArticleId() {
-                return articleId;
-            }
-        }
     }
 
     public interface ArticlesView {
