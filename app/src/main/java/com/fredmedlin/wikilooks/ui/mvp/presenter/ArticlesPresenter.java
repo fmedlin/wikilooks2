@@ -1,5 +1,7 @@
 package com.fredmedlin.wikilooks.ui.mvp.presenter;
 
+import com.fredmedlin.wikilooks.domain.Article;
+import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.ArticleReceivedEvent;
 import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.GeoArticlesEvent;
 import com.fredmedlin.wikilooks.ui.mvp.presenter.ArticlesPresenter.ArticlesModel.LocationEvent;
 
@@ -27,10 +29,19 @@ public class ArticlesPresenter {
         }
     }
 
+    public void onArticleReceived(ArticleReceivedEvent event) {
+        Article article = model.getArticle(event.getArticleId());
+        view.addArticle(article.getTitle(),
+                article.getDescription(),
+                article.getLatitude(),
+                article.getLongitude());
+    }
+
     public interface ArticlesModel {
         void requestLocation();
         void fetchArticlesByLocation(double lat, double lon);
         void fetchArticle(long articleId);
+        Article getArticle(long articleId);
 
         public static class LocationEvent {
             double lat;
@@ -61,9 +72,21 @@ public class ArticlesPresenter {
                 return articleIds;
             }
         }
+
+        public static class ArticleReceivedEvent {
+            long articleId;
+
+            public ArticleReceivedEvent(long articleId) {
+                this.articleId = articleId;
+            }
+
+            public long getArticleId() {
+                return articleId;
+            }
+        }
     }
 
     public interface ArticlesView {
-
+        void addArticle(String title, String description, double lat, double lon);
     }
 }

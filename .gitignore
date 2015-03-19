@@ -5,6 +5,12 @@
 /build
 *.iml
 
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
 # Built application files
 *.apk
 *.ap_
