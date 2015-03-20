@@ -7,8 +7,6 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import static junit.framework.Assert.fail;
-
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "app/src/main/AndroidManifest.xml", emulateSdk = 18)
 public class MainActivityTest {
@@ -22,6 +20,6 @@ public class MainActivityTest {
 
     @Test
     public void itShouldFail() {
-        fail("Implement me");
+        assert(activity != null);
     }
 }
