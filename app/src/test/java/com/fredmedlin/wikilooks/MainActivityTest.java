@@ -19,7 +19,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void itShouldFail() {
+    public void itShouldNotFail() {
         assert(activity != null);
     }
 }
