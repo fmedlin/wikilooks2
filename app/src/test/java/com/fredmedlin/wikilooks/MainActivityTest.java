@@ -7,6 +7,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "app/src/main/AndroidManifest.xml", emulateSdk = 18)
 public class MainActivityTest {
@@ -19,7 +21,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void itShouldNotFail() {
-        assert(activity != null);
+    public void itShouldSetupActivity() {
+        assertThat(activity).isNotNull();
     }
 }

@@ -1,22 +1,33 @@
 package com.fredmedlin.wikilooks.ui.mvp.model;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
-public class ArticlesModelTest extends TestCase {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    public void testRequestLocation() throws Exception {
+@RunWith(RobolectricTestRunner.class)
+@Config(manifest = "app/src/main/AndroidManifest.xml", emulateSdk = 18)
+public class ArticlesModelTest {
+
+    @Test
+    public void itShouldRequestLocation() {
+        assertThat(true).isFalse();
+    }
+
+    @Test
+    public void itShouldFetchArticlesByLocation() {
 
     }
 
-    public void testFetchArticlesByLocation() throws Exception {
+    @Test
+    public void itShouldFetchArticle() {
 
     }
 
-    public void testFetchArticle() throws Exception {
-
-    }
-
-    public void testGetArticle() throws Exception {
+    @Test
+    public void itShouldGetArticle() {
 
     }
 }
